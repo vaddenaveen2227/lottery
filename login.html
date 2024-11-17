@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Lottery Machine</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #d32f2f, #000000);
+            color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            background-color: #b71c1c;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            margin: 30px auto;
+            max-width: 1200px;
+        }
+
+        .details-container {
+            width: 30%;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .details-container h2 {
+            color: #f4f4f4;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .details-container p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px 0;
+            color: #ffffff;
+        }
+
+        .lottery-machine-container {
+            width: 65%;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .lottery-machine-container h1 {
+            color: #f4f4f4;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .lottery-machine {
+            position: relative;
+            width: 600px;
+            height: 300px;
+            margin: 0 auto;
+            background: url('file:///C:/Users/vadde/Downloads/Desktop/NDL/image/WhatsApp%20Image%202024-11-16%20at%2022.16.44_e79baf2f.jpg') no-repeat center;
+            background-size: cover;
+        }
+
+        .spinner {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            overflow: hidden;
+        }
+
+        .spinner .numbers {
+            position: absolute;
+            width: 100%;
+            transform: translateY(0);
+        }
+
+        .numbers span {
+            display: block;
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 70px;
+            color: black; /* Set the number color to black */
+        }
+
+        #spinner1 { top: 80px; left: 85px; }
+        #spinner2 { top: 80px; left: 165px; }
+        #spinner3 { top: 80px; left: 245px; }
+        #spinner4 { top: 80px; left: 325px; }
+        #spinner5 { top: 80px; left: 405px; }
+
+        .result-display {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #f4f4f4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #b71c1c;
+            color: white;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        @keyframes fastSpin {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-1000px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Advanced Lottery Machine
+    </div>
+    <div class="container">
+        <div class="details-container" id="userDetails">
+            <h2>User Information</h2>
+            <!-- User details will be populated here -->
+        </div>
+        <div class="lottery-machine-container">
+            <h1>Try Your Luck!</h1>
+            <form id="lotteryForm">
+                <label for="ticket">Enter your Ticket ID</label>
+                <input type="number" id="ticket" placeholder="Enter ticket number" required>
+                <button type="submit" id="submitButton">Submit</button>
+            </form>
+            <div class="lottery-machine">
+                <div class="spinner" id="spinner1">
+                    <div class="numbers">
+                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span>
+                        <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                    </div>
+                </div>
+                <div class="spinner" id="spinner2">
+                    <div class="numbers">
+                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span>
+                        <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                    </div>
+                </div>
+                <div class="spinner" id="spinner3">
+                    <div class="numbers">
+                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span>
+                        <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                    </div>
+                </div>
+                <div class="spinner" id="spinner4">
+                    <div class="numbers">
+                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span>
+                        <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                    </div>
+                </div>
+                <div class="spinner" id="spinner5">
+                    <div class="numbers">
+                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span>
+                        <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-display" id="result">Enter your ticket and press submit!</div>
+        </div>
+    </div>
+    <footer>
+        Powered by Advanced Lottery Systems
+    </footer>
+    <script>
+        // Retrieve user details from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const firstname = urlParams.get("firstname");
+        const mobile = urlParams.get("mobile");
+        const advancePayment = urlParams.get("advance-payment");
+        const afterPassPayment = urlParams.get("after-pass-payment");
+
+        // Populate the user details container
+        document.getElementById("userDetails").innerHTML += ` 
+            <p><strong>Firstname:</strong> ${firstname}</p>
+            <p><strong>Mobile:</strong> ${mobile}</p>
+            <p><strong>Advance Payment:</strong> ${advancePayment}</p>
+            <p><strong>After Pass Payment:</strong> ${afterPassPayment}%</p>
+        `;
+
+        // Lottery machine logic
+        const form = document.getElementById('lotteryForm');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const ticketNumber = document.getElementById('ticket').value.padStart(5, '0');
+            const spinners = document.querySelectorAll('.spinner .numbers');
+
+            // Spin the numbers
+            spinners.forEach(spinner => {
+                spinner.style.animation = 'fastSpin 1s linear infinite';
+            });
+
+            setTimeout(() => {
+                spinners.forEach((spinner, index) => {
+                    const digit = ticketNumber[index];
+                    spinner.style.animation = 'none';
+                    spinner.style.transform = `translateY(-${digit * 70}px)`;
+                });
+
+                document.getElementById('result').textContent = `Your ticket number is ${ticketNumber}.`;
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

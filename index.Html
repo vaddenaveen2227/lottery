@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dear Lottery</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #d32f2f, #000000);
+            color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #b71c1c;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 30px auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #e53935;
+            margin-bottom: 20px;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            color: #f4f4f4;
+        }
+
+        .form-container input {
+            width: calc(100% - 50px);
+            padding: 12px;
+            margin: 5px 0 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #333;
+            color: #f4f4f4;
+        }
+
+        .percent-symbol {
+            position: absolute;
+            margin-left: -45px;
+            margin-top: 12px;
+            font-size: 18px;
+            color: #777;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .form-container button:hover {
+            background-color: #b71c1c;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 50px;
+            background-color: #b71c1c;
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Dear Lottery
+    </div>
+    <div class="form-container">
+        <h2>Dear Lottery Result Today</h2>
+        <form action="advance-lottery.html" method="GET">
+            <label for="firstname">Firstname</label>
+            <input type="text" id="firstname" name="firstname" required>
+            
+            <label for="mobile">Mobile Number</label>
+            <input type="text" id="mobile" name="mobile" required>
+            
+            <label for="advance-payment">Advance Payment</label>
+            <input type="number" id="advance-payment" name="advance-payment" required>
+            
+            <label for="after-pass-payment">After Pass Payment</label>
+            <div style="position: relative;">
+                <input type="number" id="after-pass-payment" name="after-pass-payment" required>
+                <span class="percent-symbol">%</span>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <footer>
+        Powered by Advanced Lottery Systems
+    </footer>
+</body>
+</html>
